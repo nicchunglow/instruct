@@ -1,0 +1,11 @@
+.button {
+	margin: 10px 10px;
+	text-decoration: none;
+}
+
+.submit-button {
+	border-radius: 5px;
+	margin: 10px 0px;
+	background-color: rgb(20, 184, 143);
+	width: 80%;
+}
