@@ -14,7 +14,7 @@ export const userReducer = (state = {}, action: any) => {
 	}
 };
 
-export const loadNotes = () => async (dispatch: any, getState: any) => {
+export const loadFeed = () => async (dispatch: any, getState: any) => {
 	const feed = await fetch("https://my.api.mockaroo.com/test?key=4557ea40").then((res) => res.json());
 	dispatch(allFeeds(feed));
 };

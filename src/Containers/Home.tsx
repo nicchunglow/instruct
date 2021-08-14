@@ -8,7 +8,7 @@ import { IUserFeed } from "../Models/User.model";
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as feedActionsCreators from "../store/actions/feedActions";
-import { loadNotes } from "../store/reducers/feedReducer";
+import { loadFeed } from "../store/reducers/feedReducer";
 
 const Home = () => {
 	const feedState = useSelector((state) => state);
@@ -26,14 +26,14 @@ const Home = () => {
 		]);
 	};
 	const onLoad = () => {
-		dispatch(loadNotes());
+		dispatch(loadFeed());
 	};
 
 	React.useEffect(() => {
 		handleCardLoad();
 		onLoad();
 		console.log("feedState", feedState);
-		console.log("hiu");
+		console.log("here");
 	}, []);
 
 	return (
