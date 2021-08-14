@@ -15,6 +15,7 @@
     "@types/react": "^17.0.11",
     "@types/react-dom": "^17.0.8",
     "axios": "^0.21.1",
+    "eslint-plugin-react-hooks": "^4.2.1-alpha-9ab90de60-20210720",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.8.6",

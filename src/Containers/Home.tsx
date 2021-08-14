@@ -5,8 +5,16 @@ import "../Shared/Card.css";
 import { Container } from "@material-ui/core";
 import FeedCard from "../Components/FeedCard";
 import { IUserFeed } from "../Models/User.model";
+import { useDispatch, useSelector } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as feedActionsCreators from "../store/actions/feedActions";
+import { loadNotes } from "../store/reducers/feedReducer";
 
 const Home = () => {
+	const feedState = useSelector((state) => state);
+	const dispatch = useDispatch();
+	const boundFeedCreators = bindActionCreators(feedActionsCreators, dispatch);
+
 	const [userFeed, setUserFeed] = React.useState<IUserFeed[] | any>();
 
 	const handleCardLoad = () => {
@@ -17,9 +25,15 @@ const Home = () => {
 			{ id: 4, message: "few" },
 		]);
 	};
+	const onLoad = () => {
+		dispatch(loadNotes());
+	};
 
 	React.useEffect(() => {
 		handleCardLoad();
+		onLoad();
+		console.log("feedState", feedState);
+		console.log("hiu");
 	}, []);
 
 	return (
