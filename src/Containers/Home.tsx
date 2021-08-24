@@ -14,7 +14,7 @@ interface IFeed {
 	payload: IUserFeed[];
 }
 
-const Home = () => {
+const Home: React.FC = () => {
 	const feedState: IFeed = useSelector((state: any) => state.feed);
 	const dispatch = useDispatch();
 
@@ -30,6 +30,8 @@ const Home = () => {
 	console.log(feedState);
 	return (
 		<Container maxWidth="sm">
+			<p>Count = {feedState?.payload ? feedState.payload.length : "Loading"}</p>
+			<button onClick={onLoad}>RELOAD</button>
 			{feedState.loading === true && <Loader type="Puff" color="#00BFFF" height={100} width={100} />}
 			{feedState.payload?.map((info: IUserFeed) => {
 				return <FeedCard cardInfo={info} key={info.id} />;

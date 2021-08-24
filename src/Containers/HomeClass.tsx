@@ -20,17 +20,17 @@ class Home extends React.Component<any, any> {
 	}
 
 	handleCardLoad = async () => {
-		const res = await Axios.get("https://my.api.mockaroo.com/test?key=4557ea40");
+		const res = await Axios.get("https://my.api.mockaroo.com/test?key=1f30b220");
 		this.setState({
 			feed: res.data,
 		});
 	};
 	render() {
 		const { feed } = this.state;
-		console.log("feed", feed);
+		const newFeed = feed.filter((item: IUserFeed) => item.id % 2 !== 0);
 		return (
 			<Container maxWidth="sm">
-				{feed.map((info: IUserFeed) => {
+				{newFeed.map((info: IUserFeed) => {
 					return <FeedCard cardInfo={info} key={info.id} />;
 				})}
 			</Container>

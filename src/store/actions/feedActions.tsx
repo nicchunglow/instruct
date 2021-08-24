@@ -8,6 +8,6 @@ export const allFeeds = (feed: IUserFeed) => ({
 });
 
 export const loadFeed = () => async (dispatch: any) => {
-	const feed: AxiosResponse = await Axios.get("https://my.api.mockaroo.com/test?key=4557ea40");
+	const feed: AxiosResponse = await Axios.get("https://my.api.mockaroo.com/users?key=1f30b220");
 	dispatch(allFeeds(feed.data));
 };
