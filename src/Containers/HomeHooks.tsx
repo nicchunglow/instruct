@@ -10,20 +10,21 @@ import Axios from "axios";
 const Home: React.FC = () => {
 	const [userFeed, setUserFeed] = React.useState<IUserFeed[] | any>();
 	const [showTitle, setShowTitle] = React.useState<string>("hi");
-	const title = React.useRef("newHi");
+	const title = React.useRef("");
+
 	const handleCardLoad = async () => {
 		const res = await Axios.get("https://my.api.mockaroo.com/users?key=1f30b220");
 		setUserFeed(res.data);
 	};
 
 	const handleTitleChange = (event: any) => {
-		// setTitle(event.target.value);
 		title.current = event.target.value;
 	};
 
 	const handleShowTitleChange = (event: any) => {
 		setShowTitle(title.current);
 	};
+
 	React.useEffect(() => {
 		handleCardLoad();
 	}, [showTitle]);
