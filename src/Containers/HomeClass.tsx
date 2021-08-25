@@ -20,7 +20,7 @@ class Home extends React.Component<any, any> {
 	}
 
 	handleCardLoad = async () => {
-		const res = await Axios.get("https://my.api.mockaroo.com/test?key=1f30b220");
+		const res = await Axios.get("https://my.api.mockaroo.com/users?key=1f30b220");
 		this.setState({
 			feed: res.data,
 		});

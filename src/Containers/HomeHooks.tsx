@@ -11,13 +11,14 @@ const Home = () => {
 	const [userFeed, setUserFeed] = React.useState<IUserFeed[] | any>();
 
 	const handleCardLoad = async () => {
-		const res = await Axios.get("https://my.api.mockaroo.com/test?key=4557ea40");
+		const res = await Axios.get("https://my.api.mockaroo.com/users?key=1f30b220");
 		setUserFeed(res.data);
 	};
 
 	React.useEffect(() => {
 		handleCardLoad();
 	}, []);
+
 	console.log("userFeed", userFeed);
 	return (
 		<Container maxWidth="sm">
